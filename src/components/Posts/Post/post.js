@@ -16,7 +16,7 @@ const post = ({post, setCurrentID}  ) => {
             <a href={post.link} target="_blank" rel='noopener'><CardMedia 
                 className={classes.media}
                 image={post.selectedFile}
-                title={post.title}
+                title={post.link}
             /></a>
             <div className={classes.overlay}>
                 <Typography variant='h6'>{post.creator}</Typography>
