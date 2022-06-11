@@ -13,11 +13,11 @@ const post = ({post, setCurrentID}  ) => {
     const dispatch = useDispatch()
     return (
         <Card className={classes.card}>
-            <CardMedia 
-                className={classes.media} 
-                image={post.selectedFile} 
+            <a href={post.link} target="_blank" rel='noopener'><CardMedia 
+                className={classes.media}
+                image={post.selectedFile}
                 title={post.title}
-            />
+            /></a>
             <div className={classes.overlay}>
                 <Typography variant='h6'>{post.creator}</Typography>
                 <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>

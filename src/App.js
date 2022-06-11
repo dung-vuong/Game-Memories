@@ -6,7 +6,6 @@ import {getPosts} from './actions/posts'
 import Posts from "./components/Posts/posts.js"
 import Form from "./components/Form/form.js"
 import game from "./images/game.png"
-
 import useStyles from "./styles.js"
 
 const App = () => {

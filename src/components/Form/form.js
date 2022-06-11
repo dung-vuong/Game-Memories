@@ -14,7 +14,8 @@ const form = ({setCurrentID, currentID}) => {
         title: '',
         message: '',
         tags: '',
-        selectedFile: ''
+        selectedFile: '',
+        link: ''
     })
 
     useEffect(() => {
@@ -38,7 +39,8 @@ const form = ({setCurrentID, currentID}) => {
             title: '',
             message: '',
             tags: '',
-            selectedFile: ''
+            selectedFile: '',
+            link: ''
         })
     }
     return (
@@ -70,6 +72,14 @@ const form = ({setCurrentID, currentID}) => {
                     fullWidth
                     value={postData.message}
                     onChange={(e) => sestPostData({...postData, message: e.target.value})}
+                />
+                <TextField 
+                    name='link' 
+                    variant='outlined' 
+                    label="Link"
+                    fullWidth
+                    value={postData.link}
+                    onChange={(e) => sestPostData({...postData, link: e.target.value})}
                 />
                 <TextField 
                     name='tags' 
