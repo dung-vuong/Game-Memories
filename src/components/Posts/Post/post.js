@@ -13,7 +13,7 @@ const post = ({post, setCurrentID}  ) => {
     const dispatch = useDispatch()
     return (
         <Card className={classes.card}>
-            <a href={post.link} target="_blank" rel='noopener'><CardMedia 
+            <a href={post.link} target="_blank" rel='noopener noreferrer'><CardMedia 
                 className={classes.media}
                 image={post.selectedFile}
                 title={post.link}
