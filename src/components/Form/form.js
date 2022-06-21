@@ -9,7 +9,7 @@ const form = ({setCurrentID, currentID}) => {
     const classes = useStyles()
     const dispatch = useDispatch()
     const post = useSelector((state) => currentID ? state.posts.find((p) => p._id === currentID) : null)
-    const [postData, sestPostData] = useState({
+    const [postData, setPostData] = useState({
         creator: '',
         title: '',
         message: '',
@@ -19,7 +19,7 @@ const form = ({setCurrentID, currentID}) => {
     })
 
     useEffect(() => {
-        if(post) sestPostData(post)
+        if(post) setPostData(post)
     }, [post])
 
     const handleSubmit = (e) => {
@@ -34,7 +34,7 @@ const form = ({setCurrentID, currentID}) => {
     }
     const clear = () => {
         setCurrentID(0)
-        sestPostData({
+        setPostData({
             creator: '',
             title: '',
             message: '',
@@ -55,7 +55,7 @@ const form = ({setCurrentID, currentID}) => {
                     label="Creator"
                     fullWidth
                     value={postData.creator}
-                    onChange={(e) => sestPostData({...postData, creator: e.target.value})}
+                    onChange={(e) => setPostData({...postData, creator: e.target.value})}
                 />
                 <TextField 
                     name='title' 
@@ -63,7 +63,7 @@ const form = ({setCurrentID, currentID}) => {
                     label="Title"
                     fullWidth
                     value={postData.title}
-                    onChange={(e) => sestPostData({...postData, title: e.target.value})}
+                    onChange={(e) => setPostData({...postData, title: e.target.value})}
                 />
                 <TextField 
                     name='message' 
@@ -71,7 +71,7 @@ const form = ({setCurrentID, currentID}) => {
                     label="Message"
                     fullWidth
                     value={postData.message}
-                    onChange={(e) => sestPostData({...postData, message: e.target.value})}
+                    onChange={(e) => setPostData({...postData, message: e.target.value})}
                 />
                 <TextField 
                     name='link' 
@@ -79,7 +79,7 @@ const form = ({setCurrentID, currentID}) => {
                     label="Link"
                     fullWidth
                     value={postData.link}
-                    onChange={(e) => sestPostData({...postData, link: e.target.value})}
+                    onChange={(e) => setPostData({...postData, link: e.target.value})}
                 />
                 <TextField 
                     name='tags' 
@@ -87,13 +87,13 @@ const form = ({setCurrentID, currentID}) => {
                     label="Tags (split the tags by commas)"
                     fullWidth
                     value={postData.tags}
-                    onChange={(e) => sestPostData({...postData, tags: e.target.value.split(',')})}
+                    onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})}
                 />
                 <div className={classes.fileInput}>
                     <FileBase
                         type="file"
                         multiple={false}
-                        onDone={({base64}) => sestPostData({...postData, selectedFile: base64})}
+                        onDone={({base64}) => setPostData({...postData, selectedFile: base64})}
                     />
                 </div>
                 <Button

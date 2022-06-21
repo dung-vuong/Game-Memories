@@ -24,7 +24,7 @@ const post = ({post, setCurrentID}  ) => {
             </div>
             <div className={classes.overlay2}>
                 <Button style={{color: 'white'}} size="small" onClick={() => setCurrentID(post._id)}>
-                    <Edit fontSize='default'/>
+                    <Edit fontSize='medium'/>
                 </Button>
             </div>
             <div className={classes.details}>
