@@ -9,6 +9,15 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import useStyles from './styles'
 import Input from './input'
 import Icon from './icon'
+import { signin, signup } from '../../actions/auth'
+
+const initialState = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+}
 
 const auth = () => {
     const classes = useStyles()
@@ -17,17 +26,25 @@ const auth = () => {
     const clientId = '822112670002-11pvtll8kolp7pvu7u117162n1ffctq2.apps.googleusercontent.com'
     const [showPassword, setShowPassword] = useState(false)
     const [isSignup, setIsSignup] = useState(true)
-    const handleSubmit = () => {
+    const [formData, setFormData] = useState(initialState)
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (isSignup) {
+            dispatch(signup(formData, navigate))
+        }
+        else {
+            dispatch(signin(formData, navigate))
+        }
     }
-    const handleChange = () => {
-
+    const handleChange = (e) => {
+        setFormData({...formData,  [e.target.name]: e.target.value})
     }
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
     
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup)
-        handleShowPassword(false)
+        setShowPassword(false)
     }
 
     //IF FOUND THE USER, THEN SAVE TO THE DATABASE
@@ -71,11 +88,11 @@ const auth = () => {
                         {isSignup && (
                             <>
                                 <Input name='firstName' label="First Name" handleChange={handleChange} autoFocus half/>
-                                <Input name='firstName' label="First Name" handleChange={handleChange}  half/>
+                                <Input name='lastName' label="Last Name" handleChange={handleChange}  half/>
                             </>
                         )}
                         <Input name='email' label="Email Address" handleChange={handleChange} type="email" />
-                        <Input name='passwaord' label="Password" handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
+                        <Input name='password' label="Password" handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
                         {isSignup && 
                             <Input name='confirmPassword' label='Confirm Password' handleChange={handleChange} type="password"/>
                         }

@@ -18,7 +18,6 @@ const NavBar = () => {
         navigate('/')
         setUser(null)
     }
-    console.log(user)
 
     useEffect(() => {
         const token = user ? user.token : null
