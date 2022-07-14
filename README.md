@@ -1,4 +1,4 @@
-## Game Memories
+# Game Memories
 ### https://game-memories.netlify.app/
 
 #### ● Created responsive Game Memories App using React, Redux, MUI Library
