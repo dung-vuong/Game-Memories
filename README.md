@@ -11,3 +11,4 @@
 - Login with Email (JWT) and Google OAuth Authentication
 
 ## ⬇️ Demo Run ⬇️ 
+Uploading Game Memories - AVG Secure Browser 2022-07-20 15-04-25.mp4…
