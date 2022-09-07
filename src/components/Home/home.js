@@ -29,5 +29,4 @@ const home = () => {
         </Grow>
     )
 }
-
 export default home
