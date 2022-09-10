@@ -8,6 +8,7 @@ import useStyles from './styles'
 import { useDispatch } from 'react-redux'
 import { deletePost, likePost } from '../../../actions/posts'
 
+
 const post = ({post, setCurrentID}  ) => {
     const classes = useStyles()
     const dispatch = useDispatch()
